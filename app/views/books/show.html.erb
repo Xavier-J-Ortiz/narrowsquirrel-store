@@ -1,29 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="large-3 small-12 column">
+	<%=image_tag @book.poster_url%>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+<div class="large-9 small-12 column">
+	<h3>
+		<%= @book.title %>
+		(<%= @book.publish_date %>)
+		<%=image_tag @book.poster_url%>
+	</h3>
+	<p class="label book-label radius mb1">$ <%= @book.price %></p>
 
-<p>
-  <strong>Publish date:</strong>
-  <%= @book.publish_date %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @book.price %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
-
-<p>
-  <strong>Poster url:</strong>
-  <%= @book.poster_url %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+	<p><%= @book.description %></p>
+</div>
