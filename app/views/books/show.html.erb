@@ -1,14 +1,20 @@
 <div class="large-3 small-12 column">
-	<%=image_tag @book.poster_url%>
+  <%=image_tag @book.poster_url%>
 </div>
 
 <div class="large-9 small-12 column">
-	<h3>
-		<%= @book.title %>
-		(<%= @book.publish_date %>)
-		<%=image_tag @book.poster_url%>
-	</h3>
-	<p class="label book-label radius mb1">$ <%= @book.price %></p>
+  <h3>
+    <%= @book.title %>
+    (<%= @book.publish_date %>)
+    <%=image_tag @book.poster_url%>
+  </h3>
+  <p class="label book-label radius mb1">$ <%= @book.price %></p>
 
-	<p><%= @book.description %></p>
+  <p><%= @book.description %></p>
+  <%if signed_in?%>
+    <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@book), removeUrl: remove_from_cart_path(@book)} do%>
+      <i class="fi-shopping-cart"></i>
+      <span><%=@cart_action%></span> Cart
+    <%end%>
+  <%end%>
 </div>
